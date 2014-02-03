@@ -1,0 +1,18 @@
+
+	<text 
+		font-size = "10" 
+		font-family = "sans-serif" 
+		font-weight = "bold" 
+		fill = "black" 
+		text-anchor = "start"
+		x = "SEGMENT_LABEL-START-X" 
+		y = "SEGMENT_LABEL-START-Y"
+		transform = 
+			"
+				translate(SEGMENT_LABEL-OFFSET-X SEGMENT_LABEL-OFFSET-Y)
+				rotate(SEGMENT_SAGITTA-AZIMUTH ARC_CENTER-X ARC_CENTER-Y)
+			" 
+	>
+		SEGMENT_LABEL
+	</text>
+

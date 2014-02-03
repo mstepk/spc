@@ -1,0 +1,197 @@
+<?xml
+	version = "1.0"
+	standalone = "no"
+?>
+
+<!DOCTYPE
+	svg
+	PUBLIC
+	"-//W3C//DTD SVG 12//EN"
+	"http://www.w3.org/Graphics/SVG/1.2/DTD/svg12.dtd"
+>
+
+<svg
+	xmlns = "http://www.w3.org/2000/svg"
+	viewbox = "0 0 400 400"
+	baseProfile = "tiny"
+	version = "1.2"
+>
+
+	<rect
+		x = "5"
+		y = "5"
+		rx = "10"
+		ry = "10"
+		width = "390"
+		height = "390"
+		fill = "brown"
+		stroke = "black"
+		stroke-width = "1"
+	/>
+
+	<path
+		d = 
+			"
+				M 200 200
+				L 200 15
+				A 
+					185 185
+					0 0 1
+					259.20 26.10 
+				Z
+			"
+		fill = "red"
+		stroke = "white"
+		stroke-width = "3"
+	/>
+
+	<path
+		d = 
+			"
+				M 200 200
+				L 259.20 26.10
+				A 
+					185 185
+					0 0 1
+					357.25 103.80 
+				Z
+			"
+		fill = "orange"
+		stroke = "white"
+		stroke-width = "3"
+	/>
+
+	<path
+		d = 
+			"
+				M 200 200
+				L 357.25 103.80
+				A 
+					185 185
+					0 0 1
+					362.80 286.95 
+				Z
+			"
+		fill = "yellow"
+		stroke = "white"
+		stroke-width = "3"
+	/>
+
+	<path
+		d = 
+			"
+				M 200 200
+				L 362.80 286.95
+				A 
+					185 185
+					0 0 1
+					111.20 362.80 
+				Z
+			"
+		fill = "green"
+		stroke = "white"
+		stroke-width = "3"
+	/>
+
+	<path
+		d = 
+			"
+				M 200 200
+				L 111.20 362.80
+				A 
+					185 185
+					0 0 1
+					200 15 
+				Z
+			"
+		fill = "blue"
+		stroke = "white"
+		stroke-width = "3"
+	/>
+
+	<text 
+		font-size = "10" 
+		font-family = "sans-serif" 
+		font-weight = "bold" 
+		fill = "black" 
+		text-anchor = "start"
+		x = "200" 
+		y = "200"
+		transform = 
+			"
+				translate(7.40 -45.32)
+				rotate(-80.50251258 200 200)
+			" 
+	>
+		As
+	</text>
+
+	<text 
+		font-size = "10" 
+		font-family = "sans-serif" 
+		font-weight = "bold" 
+		fill = "black" 
+		text-anchor = "start"
+		x = "200" 
+		y = "200"
+		transform = 
+			"
+				translate(28.67 -36.07)
+				rotate(-51.10552768 200 200)
+			" 
+	>
+		Bs
+	</text>
+
+	<text 
+		font-size = "10" 
+		font-family = "sans-serif" 
+		font-weight = "bold" 
+		fill = "black" 
+		text-anchor = "start"
+		x = "200" 
+		y = "200"
+		transform = 
+			"
+				translate(45.78 -1.85)
+				rotate(-1.80904527 200 200)
+			" 
+	>
+		Cs
+	</text>
+
+	<text 
+		font-size = "10" 
+		font-family = "sans-serif" 
+		font-weight = "bold" 
+		fill = "black" 
+		text-anchor = "start"
+		x = "200" 
+		y = "200"
+		transform = 
+			"
+				translate(12.95 44.40)
+				rotate(73.26633160 200 200)
+			" 
+	>
+		Ds
+	</text>
+
+	<text 
+		font-size = "10" 
+		font-family = "sans-serif" 
+		font-weight = "bold" 
+		fill = "black" 
+		text-anchor = "start"
+		x = "200" 
+		y = "200"
+		transform = 
+			"
+				translate(-44.40 -11.56)
+				rotate(194.47236174 200 200)
+			" 
+	>
+		Fs
+	</text>
+
+</svg>

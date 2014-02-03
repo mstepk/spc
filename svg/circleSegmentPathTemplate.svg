@@ -1,0 +1,17 @@
+
+	<path
+		d = 
+			"
+				M ARC_CENTER-X ARC_CENTER-Y
+				L ARC_X1 ARC_Y1
+				A 
+					ARC_RADIUS-X ARC_RADIUS-Y
+					ARC_X-AXIS-ROTATION ARC_LARGE-ARC-FLAG ARC_SWEEP-FLAG
+					ARC_X2 ARC_Y2 
+				Z
+			"
+		fill = "ARC_FILL-COLOR"
+		stroke = "ARC_STROKE-COLOR"
+		stroke-width = "ARC_STROKE-WIDTH"
+	/>
+

@@ -1,0 +1,48 @@
+Simple Pie Charter - CLI to generate SVG pie charts
+
+simpleBarCharter.sh, sbc, is Copyright 2007 and 2014 by Mark S. Kalusha, msk.
+
+This program produces a simple pie chart in SVG format, given command line
+inputs, values passed by the user.
+
+The simplePieCharter (SPC) allows the user to pass a simple list of numbers on
+the command line and get a pie chart of those numbers written to disk as an
+SVG (Scalable Vector Graphics) file that can be rendered esily by most modern
+web browser. 
+
+This program was previously named addSegmentValues.sh, which indicates that 
+really it does little more then fill-in/add values to the SVG elements that
+are includes under the spcTemplates sub-directory of this program.
+
+The circleSegmentPathTemplate.svg is used to create a slices of the pie,
+and segmentLabelTextTemplate.svg is used to label the slices.
+
+The list of integers entered determines the number and size of each the
+slices/segments of the pie chart being created.
+  
+Don't recall the last time I worked on this project, the modification date on
+the file says 2012-12-08, but the notes in the file say last updated 2007-11-23.
+
+I know its been several years, more than one or two for sure, since I've worked 
+on it.  Likely the date on the file is the date I copied to the USB and now to
+this machine.
+
+I've got notes for versions 0.0 through 0.5 in the original work that I'm now
+picking up on in February of 2014.  Now that I'm picking development back up,
+I'll call those orginal 0.0 through 0.5 versions as 0.0.1 through 0.0.6.
+
+So the check-in I'll make moving this into GitHub I'll call version 0.0.6.
+
+Note that resuming work on this simplePieCharter utility is not a coincidence.
+Over the last few weeks I wrote a simpleBarCharter utility which I have already
+checked-in to GitHub.
+
+The two programs SBC (Simple bat Charter) and SPC (Simple Pie Charter) are
+companians and the future may be merged into a single program.
+
+Other future plans are re-writing in some other then BASH, planning on Ruby,
+developing a tactile control GUI, and distributing as an App for mobile and
+tablet users.  These future plans will likely be done under a new project name.
+
+MSK
+

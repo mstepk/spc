@@ -1,0 +1,16 @@
+# 269 23 34 12 6 (invert)
+# 52 47 12 4 6 (bubbleOut)
+# 69 42 34 12 32 (normal)
+
+segmentLabels="As Bs Cs Ds Fs"
+#segmentLabels="Reading Mathematics Language-Usage Social-Studies Geography"
+#segmentLabels="Cats Dogs Birds Reptiles Fish"
+
+segmentFillColors="red orange yellow green blue"
+
+radiusOfPieChart="185"
+chartMargin="5"
+chartPadding="10"
+colorOfSegmentOutline="white"
+widthOfSegmentOutline="3"
+

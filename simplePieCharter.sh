@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Author: MSK
-# Last Updated: Friday November 23rd 2007
-# Version: 0.5
+# Last Updated: Tuesday February 4th 2014
+# Version: 0.0.7
 
 # ::Overview::
 # ------------
@@ -38,56 +38,51 @@
 
 # ::Version History::
 # -------------------
-# This pie chart generation utility has not used version control.
+# This pie chart generation utility di not use a VCS prior to version 0.0.6
 #
 # Further this version history is written in retrospect at the point of 
 # version 0.4 on November 21st 2007 and coincides with the release of 
 # version 0.7 of the 'test counts/stats generation' utility. 
-#
-# A factor contributing to my motivation to write this utility was its
-# anticipated use in the 'test counts/stats generation' utility for CALs
-# Management Tools.  See the 0.7 and 0.8 entries in the version history 
-# of the driver file, 'getTestCounts.sh', for more details.
 
-# Version 0.0
-# -----------
+# Version 0.0.1
+# -------------
 # - used only one template
 # - had no labels
 # - had no frame/bounding-box
 # - had no segment outlines
 # - very buggy
 
-# Version 0.1
-# -----------
+# Version 0.0.2
+# -------------
 # Various improvements and bug fixes.
 # - added bounding box
 # - added segment outlines
 # - segment outline at boundary between first and last segment.
 
-# Version 0.2
-# -----------
+# Version 0.0.3
+# -------------
 # - added ability to set colors in script
 # - added ability to set labels in script
 # - added label template
 # - label drawing is buggy
 # - found bug when a segment begins in quadrant IV and ends in quadrant II
 
-# Version 0.3
-# -----------
+# Version 0.0.4
+# -------------
 # - fixed bugs with label drawing, but still not perfect in some cases 
 #   i.e. orientation of label text and
 #        centering of label is slightly off, very noticeable in small slices
 
-# Version 0.4
-# -----------
+# Version 0.0.5
+# -------------
 # - created 'svg' directory to put SVG templates and SVG output into
 # - added the '::Overview::' and '::Version History::' sections/headers to this
 #   BASH script which is the driver for this SVG pie chart generation utility. 
 # - added coverage classes and coverage quadrants
 # - fixed bug with segments beginning in quadrant IV and ending in quadrant II
 
-# Version 0.5
-# -----------
+# Version 0.0.6
+# -------------
 # - created 'pieChart.rc', copied color, label, and radius variables to it.
 # - added 'chartMargin', 'chartPadding', 'colorOfSegmentOutline', and 
 #   'widthOfSegmentOutline' as config variables, also in pieChart.rc
@@ -148,15 +143,15 @@ degreesPerRadian="57.2957795"
 degreesPerRadian=`printf "scale=10; 180 / $PI\n" | bc -l`
 
 configurationDirectory="./"
-svgDirectory="./svg/"
+svgDirectory="svg/"
 
 configurationFile="pieChart.rc"
-pieChartSvg="pieChart.svg"
+pieChartSvgBase="pieChart.svg"
 segmentSvgTemplate="circleSegmentPathTemplate.svg"
 segmentLabelSvgTemplate="segmentLabelTextTemplate.svg"
 
 configurationFile="$configurationDirectory$configurationFile"
-pieChartSvg="$svgDirectory$pieChartSvg"
+pieChartSvg="$svgDirectory$pieChartSvgBase"
 segmentSvgTemplate="$svgDirectory$segmentSvgTemplate"
 segmentLabelSvgTemplate="$svgDirectory$segmentLabelSvgTemplate"
 
@@ -254,9 +249,16 @@ viewBoxWidth=`expr \\( $radiusOfPieChart + $chartPadding + $chartMargin \\) \* 2
 viewBoxHeight="$viewBoxWidth"
 
 numSegmentsInPie="$#"
+segmentsInPie="$1"
+numSegmentsInPie=`printf '%s' "$segmentsInPie" | wc -w`
+
+printf '\nsegmentsOfPie: %s' "$segmentsInPie"
+printf '\nnumSegmentsOfPie: %i\n' "$numSegmentsInPie"
 
 quantitiesAssociatedWithEachSliceOfPie="$@"
+quantitiesAssociatedWithEachSliceOfPie="$segmentsInPie" # `printf '%s' "$segmentsInPie" | cut -d ':' -f 1`
 quantitiesAssociatedWithEachSliceOfPie=`printf "$quantitiesAssociatedWithEachSliceOfPie" | sed -e 's/[ ][ ]*/ /g'`
+
 quantitiesAssociatedWithEachSliceOfPieInAscendingOrder=`printf "$quantitiesAssociatedWithEachSliceOfPie" | sed -e 's/ /\n/g' | sort -g -s | sed -e :a -e N -e 's/\n/ /' -e ta`
 quantitiesAssociatedWithEachSliceOfPieInDescendingOrder=`printf "$quantitiesAssociatedWithEachSliceOfPie" | sed -e 's/ /\n/g' | sort --general-numeric-sort --stable --reverse | sed -e :a -e N -e 's/\n/ /' -e ta`
 
@@ -939,6 +941,37 @@ printf "\nY coordinates of start of arcs of segments: $segmentArcStartYs"
 
 
 printf "\n\nFinish: An SVG pie graph for the arguments given has been written to $pieChartSvg\n\n"
+
+workingDir=`pwd`
+derivativesCache='svg/derivatives/.cache/'
+useDerivativeCaching=1
+if test $useDerivativeCaching -eq 1;
+	then
+		if test ! -d $derivativesCache; then mkdir -vp $derivativesCache; fi;
+		yourSimplePieChart_SVG="$derivativesCache$pieChartSvgBase" # "$stampedRectSetSVG_cache"
+		cp -vp $pieChartSvg $yourSimplePieChart_SVG 
+	else
+		yourSimplePieChart_SVG="$pieChartSvg"
+fi;
+yourSimplePieChart_SVG="$workingDir/$yourSimplePieChart_SVG"
+YSPC="$yourSimplePieChart_SVG"
+
+tryDisplayingPieChartInABrowser=1
+browserLauncher='launchBrowserWindowToDisplaySVG.sh'
+geometry="$plotWidth"'x'"$plotHeight"
+displays=1
+
+if test $tryDisplayingPieChartInABrowser -eq 1;
+	then
+		if test -e $browserLauncher;
+			then
+				./$browserLauncher "$YSPC" "$yourSimplePieChart_SVG" "$geometry" "$displays" &
+	fi;
+fi;
+
+myProgram="$0"
+SPC=`ls -lhAt $myProgram | cut -d ' ' -f 10-`
+printf '\n\nThank you for using the simplePieCharter, (spc) => (%s), version 0.0.7\n\n' "$SPC"
 
 exit 0;
 

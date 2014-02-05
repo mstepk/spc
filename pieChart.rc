@@ -2,9 +2,9 @@
 # 52 47 12 4 6 (bubbleOut)
 # 69 42 34 12 32 (normal)
 
-segmentLabels="As Bs Cs Ds Fs"
+#segmentLabels="As Bs Cs Ds Fs"
 #segmentLabels="Reading Mathematics Language-Usage Social-Studies Geography"
-#segmentLabels="Cats Dogs Birds Reptiles Fish"
+segmentLabels="Cats Dogs Birds Reptiles Fish"
 
 segmentFillColors="red orange yellow green blue"
 
